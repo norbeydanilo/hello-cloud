@@ -1,0 +1,25 @@
+{
+  "name": "hello-cloud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/norbeydanilo/hello-cloud.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/norbeydanilo/hello-cloud/issues"
+  },
+  "homepage": "https://github.com/norbeydanilo/hello-cloud#readme",
+  "type": "module",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
