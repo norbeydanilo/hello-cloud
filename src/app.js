@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 app.get("/", (_req, res) => {
   res.json({
     message: "Hello Cloud ☁️",
-    docs: ["/health", "/version", "/saludos", "/docs"],
+    docs: ["/health", "/version", "/saludos", "/docs", "/ping"],
   });
 });
 
@@ -24,6 +24,10 @@ app.get("/saludos", (_req, res) => {
 
 app.get("/docs", (_req, res) => {
   res.json({ docs: "https://github.com/norbeydanilo/hello-cloud" });
+});
+
+app.get("/ping", (_req, res) => {
+  res.json({ pong: true, at: new Date().toISOString() });
 });
 
 app.listen(PORT, () => {
