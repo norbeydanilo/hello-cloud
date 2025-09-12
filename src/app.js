@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000;
 app.get("/", (_req, res) => {
   res.json({
     message: "Hello Cloud ☁️",
-    docs: ["/health", "/version", "/saludos"],
+    docs: ["/health", "/version", "/saludos", "/docs"],
   });
 });
 
@@ -20,6 +20,10 @@ app.get("/version", (_req, res) => {
 
 app.get("/saludos", (_req, res) => {
   res.json({ saludo: "hola" });
+});
+
+app.get("/docs", (_req, res) => {
+  res.json({ docs: "https://github.com/norbeydanilo/hello-cloud" });
 });
 
 app.listen(PORT, () => {
