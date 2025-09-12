@@ -29,7 +29,7 @@ jobs:
         id: vars
         run: echo "TAG=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
 
-      - name: 🏗️ Build & Push Docker image (latest + versioned)
+      - name: 🏗️ Build & Push Docker image
         run: |
           docker build -t ${{ secrets.ACR_LOGIN_SERVER }}/hello-cloud:latest .
           docker tag  ${{ secrets.ACR_LOGIN_SERVER }}/hello-cloud:latest ${{ secrets.ACR_LOGIN_SERVER }}/hello-cloud:${{ steps.vars.outputs.TAG }}
