@@ -18,6 +18,10 @@ app.get("/version", (_req, res) => {
   res.json({ name: "hello-cloud", version: "1.0.0" });
 });
 
+app.get("/saludos", (_req, res) => {
+  res.json({ saludo: "hola" });
+});
+
 app.listen(PORT, () => {
   console.log(`🚀 Server running on http://localhost:${PORT}`);
 });
