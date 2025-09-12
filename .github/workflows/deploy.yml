@@ -1,4 +1,4 @@
-name: Build & Deploy Container to Azure (SPN + versioned tag)
+name: Build & Push Docker image to ACR
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-deploy:
+  build-and-push:
     runs-on: ubuntu-latest
 
     steps:
@@ -35,9 +35,3 @@ jobs:
           docker tag  ${{ secrets.ACR_LOGIN_SERVER }}/hello-cloud:latest ${{ secrets.ACR_LOGIN_SERVER }}/hello-cloud:${{ steps.vars.outputs.TAG }}
           docker push ${{ secrets.ACR_LOGIN_SERVER }}/hello-cloud:latest
           docker push ${{ secrets.ACR_LOGIN_SERVER }}/hello-cloud:${{ steps.vars.outputs.TAG }}
-
-      - name: 🚀 Deploy to Azure Web App for Containers
-        uses: azure/webapps-deploy@v3
-        with:
-          app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
-          images: ${{ secrets.ACR_LOGIN_SERVER }}/hello-cloud:${{ steps.vars.outputs.TAG }}
